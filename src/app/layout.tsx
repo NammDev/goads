@@ -5,8 +5,7 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 import { TooltipProvider } from '@/components/ui/tooltip'
 import { Header } from '@/components/sections/header'
-import CTA from '@/components/sections/cta'
-import Footer from '@/components/sections/footer'
+import { ThemeToggle } from '@/components/layout/theme-toggle'
 
 export const metadata: Metadata = constructMetadata({})
 
@@ -25,24 +24,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en' suppressHydrationWarning>
-      <body
-        className={cn(
-          'relative size-full min-h-dvh font-sans antialiased scroll-smooth flex flex-col'
-          // inter.variable,
-          // geistMono.variable
-        )}
-      >
-        <ThemeProvider attribute='class' defaultTheme='dark'>
-          <TooltipProvider delayDuration={200}>
-            {/* <Banner /> */}
-            <Header />
-            <main className={cn('grow flex flex-col', 'size-full')}>{children}</main>
-            <CTA />
-            <Footer />
-            {/* <Footer /> */}
-            {/* <Toaster richColors position='bottom-center' duration={3000} />
-            <SpeedInsights /> */}
-          </TooltipProvider>
+      <head>
+        <link rel='preconnect' href='https://rsms.me/' />
+        <link rel='stylesheet' href='https://rsms.me/inter/inter.css' />
+      </head>
+      <body className={cn('min-h-screen bg-background antialiased w-full mx-auto scroll-smooth')}>
+        <ThemeProvider attribute='class' defaultTheme='light' enableSystem={false}>
+          {children}
+          <ThemeToggle />
+          <TailwindIndicator />
         </ThemeProvider>
       </body>
     </html>

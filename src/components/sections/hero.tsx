@@ -1,14 +1,14 @@
 import { cn } from '@/lib/utils'
-import { ScrollIndicator } from '../guarahooks/scroll-indicator'
+import { ScrollIndicator } from '../design/scroll-indicator'
 import { GridPattern } from '../magicui/grid-pattern'
-import { Spotlight } from '../guarahooks/spotlight'
+import { Spotlight } from '../ui/spotlight'
 import Link from 'next/link'
 import { buttonVariants } from '../ui/button'
 import { Icons } from '../guarahooks/icons'
 import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip'
 import { Suspense } from 'react'
 
-export async function Hero2() {
+export async function Hero() {
   return (
     <div
       id='hooks-hero'

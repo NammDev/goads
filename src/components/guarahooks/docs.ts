@@ -1,6 +1,4 @@
-import { DashboardConfig } from '@/types/docs'
-
-export const docsConfig: DashboardConfig = {
+export const docsConfig = {
   mainNav: [
     {
       title: 'Docs',
